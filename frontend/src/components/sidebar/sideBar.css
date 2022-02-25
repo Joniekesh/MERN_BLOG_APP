@@ -1,0 +1,86 @@
+.sidebar {
+	flex: 3;
+}
+
+.sidebarWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 1px solid #ddd;
+	padding: 12px;
+	height: fit-content;
+}
+
+.aboutMe {
+	text-align: center;
+	color: crimson;
+	font-weight: bold;
+	border-bottom: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+	padding: 8px;
+	margin-bottom: 10px;
+}
+
+.sidebarImg {
+	width: 100%;
+	height: 300px;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+.sidebarDesc {
+	text-align: center;
+	margin: 16px 0;
+}
+
+.sidebarCategories {
+	width: 100%;
+}
+
+.sidebarCategoryList {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: teal;
+	border-radius: 5px;
+}
+
+.sidebarCategoryListItem {
+	font-weight: bold;
+	opacity: 0.8;
+	text-align: center;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.sidebarCatSocial {
+	margin: 20px;
+	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	padding: 10px 0;
+	text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+	.sidebar {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.sidebarCategoryList {
+		display: none;
+	}
+
+	.sidebarImg {
+		height: 180px;
+	}
+
+	.sidebarCatSocial {
+		margin: 0px;
+	}
+}

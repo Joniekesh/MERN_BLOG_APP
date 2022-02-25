@@ -1,0 +1,26 @@
+.commentForm {
+	padding-top: 8px;
+}
+.commentTitle {
+	color: #333;
+}
+
+.commentTextArea {
+	font-size: 16px;
+}
+.commentBtn {
+	width: 100px;
+	padding: 8px 12px;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	background-color: teal;
+	font-weight: bold;
+	margin: 16px 0;
+	transition: all 0.3s ease;
+}
+
+.commentBtn:hover {
+	transform: scale(1.07);
+}

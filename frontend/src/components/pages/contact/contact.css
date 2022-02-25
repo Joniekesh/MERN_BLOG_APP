@@ -1,0 +1,7 @@
+.contact {
+	height: calc(100vh - 60px);
+}
+
+.contactWrapper {
+	margin-top: 3rem;
+}

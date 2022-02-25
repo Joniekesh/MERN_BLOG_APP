@@ -1,0 +1,15 @@
+.posts {
+	flex: 9;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+@media only screen and (max-width: 380px) {
+	.posts {
+		flex: 1;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+	}
+}

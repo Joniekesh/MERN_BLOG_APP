@@ -1,0 +1,15 @@
+.singlePost {
+	height: calc(100vh - 60px);
+}
+
+.singlePostWrapper {
+	display: flex;
+	gap: 1.5rem;
+	margin-top: 8rem;
+}
+
+@media only screen and (max-width: 380px) {
+	.singlePostWrapper {
+		margin-top: 1rem;
+	}
+}

@@ -1,0 +1,118 @@
+.settings {
+	height: calc(100vh - 60px);
+}
+
+.settingsWrapper {
+	display: flex;
+	margin-top: 5rem;
+}
+
+.settingsLeftWrapper {
+	flex: 9;
+	margin: 0 32px 16px 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.settingsTop {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	color: crimson;
+	opacity: 0.75;
+}
+
+.settingsTopText {
+	font-size: 30px;
+}
+
+.settinggsDeleteAccount {
+	cursor: pointer;
+}
+
+.settingsCenter {
+	display: flex;
+	flex-direction: column;
+}
+
+.settingsCenterText {
+	font-size: 20px;
+}
+.settingsCenterImgDiv {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-top: 10px;
+}
+
+.settingsCenterImgDivImg {
+	height: 70px;
+	width: 70px;
+	border-radius: 15px;
+	object-fit: cover;
+}
+
+.fileInputImgIcon {
+	margin-left: 8px;
+	font-size: 24px;
+	color: teal;
+	cursor: pointer;
+}
+
+.settingsBottom {
+	margin: 24px 0;
+}
+
+.settingsFormGroup {
+	margin: 16px 0;
+}
+
+.settingsFormGroup label {
+	display: block;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.settingsFormGroup input {
+	width: 100%;
+	border: none;
+	font-size: 1rem;
+	padding: 8px 16px 8px 0px;
+	margin-left: 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.settingsFormGroup input:focus {
+	outline: none;
+}
+
+.settingsBottomButton {
+	padding: 10px 20px;
+	width: 100px;
+	border: none;
+	color: white;
+	background-color: teal;
+	margin: 16px 0;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	float: right;
+	transition: all 0.3s ease;
+}
+
+.settingsBottomButton:hover {
+	transform: scale(1.07);
+}
+
+@media only screen and (max-width: 380px) {
+	.settingsWrapper {
+		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 425px) {
+	.settingsWrapper {
+		flex-direction: column;
+	}
+}

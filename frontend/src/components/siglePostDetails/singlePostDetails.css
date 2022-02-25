@@ -1,0 +1,200 @@
+.singlePostDetails {
+	flex: 9;
+	margin-bottom: 2rem;
+}
+
+.singlePostDetailsWrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.updateSelect {
+	width: fit-content;
+	padding: 6px;
+	font-size: 16px;
+	color: #333;
+}
+.postCategory {
+	text-align: center;
+	opacity: 0.6;
+	font-size: 20px;
+}
+
+.singlePostDetailsWrapperImg {
+	width: 100%;
+	object-fit: contain;
+}
+
+.singlePostDetailsTitle {
+	font-size: 20px;
+	line-height: 25px;
+	margin: 16px 0;
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	text-align: center;
+}
+
+.singlePostDate {
+	text-align: center;
+	color: #333;
+	opacity: 0.6;
+}
+
+.authorDetails {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.authorSingle {
+	display: flex;
+	flex-direction: column;
+	font-weight: bold;
+	margin: 0.5rem 0;
+}
+
+.authorSingleLeft {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.authorLeft {
+	color: teal;
+}
+
+.authorRight {
+	margin-left: 10px;
+	color: rgb(240, 178, 20);
+}
+
+.authorLeft {
+	color: teal;
+}
+
+.edit {
+	color: teal;
+	cursor: pointer;
+}
+
+.delete {
+	color: crimson;
+	cursor: pointer;
+	margin-left: 16px;
+}
+
+.singlePostDetailsDesc {
+	font-size: 1rem;
+	color: #333;
+	margin: 1rem 0;
+}
+
+.line {
+	background-color: crimson;
+	width: 100%;
+}
+
+.singlePostReactions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 16px;
+	background-color: whitesmoke;
+}
+
+.leftReaction {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+}
+
+.likeReactionThumb,
+.unlikeReactionThumb {
+	cursor: pointer;
+}
+
+.centerReaction {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.likesCount {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: teal;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: small;
+	margin: 0 10px;
+}
+
+.rightReaction {
+	display: flex;
+}
+
+.rightReactionCount {
+	margin-right: 10px;
+}
+
+.singlePostEditTitle {
+	font-size: 32px;
+	color: crimson;
+	border: none;
+	margin: 32px 0 0 0;
+}
+
+.singlePostEditTitle:focus {
+	outline: none;
+}
+
+.singlePostEditText {
+	width: 100%;
+	font-size: 20px;
+	color: #333;
+	margin: 20px 0;
+	border: none;
+	border-bottom: 1px solid teal;
+}
+
+.singlePostEditText:focus {
+	outline: none;
+}
+
+.singlePostEditBtn {
+	width: 100px;
+	padding: 10px 20px;
+	border: none;
+	background-color: teal;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 2rem;
+	font-size: 16px;
+	transition: all 0.3s ease;
+	align-self: flex-end;
+}
+
+.singlePostEditBtn:hover {
+	transform: scale(1.07);
+}
+
+@media only screen and (max-width: 600px) {
+	.singlePostDetailsWrapper {
+		padding: 24px;
+	}
+	.singlePostEditTitle {
+		font-size: 24px;
+	}
+	.singlePostEditBtn {
+		padding: 5px 10px;
+	}
+}

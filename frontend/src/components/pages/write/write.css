@@ -1,0 +1,114 @@
+.write {
+	height: calc(100vh - 60px);
+}
+
+.writeWrapper {
+	margin-top: 5rem;
+}
+
+.writeImg {
+	margin-top: 2rem;
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.writeFormGroup {
+	margin: 16px 0;
+}
+
+.fileInputIcon {
+	width: 30px;
+	height: 30px;
+	color: teal;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32px;
+	cursor: pointer;
+}
+
+.categorySelect {
+	padding: 6px;
+	font-size: 16px;
+	margin-top: 8px;
+	color: #333;
+}
+
+.titleInput {
+	border: none;
+	border-bottom: 1px solid teal;
+	width: 100%;
+	font-size: 32px;
+	margin: 16px 0;
+	color: crimson;
+}
+
+.writeTextArea {
+	width: 100%;
+	font-size: 20px;
+	color: #333;
+	border: none;
+	margin-bottom: 16px;
+	border-bottom: 1px solid teal;
+}
+
+.writeTextArea:focus {
+	outline: none;
+}
+
+.titleInput:focus {
+	outline: none;
+}
+
+.writeSubmitBtnDiv {
+	align-self: flex-end;
+}
+
+.writeSubmitBtn {
+	width: 100px;
+	padding: 10px 20px;
+	border: none;
+	background-color: teal;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 2rem;
+	font-size: 16px;
+	transition: all 0.3s ease;
+}
+
+.writeSubmitBtn:hover {
+	transform: scale(1.07);
+}
+
+@media only screen and (max-width: 380px) {
+	.writeWrapper {
+		margin-top: 0px;
+	}
+	.writeImg {
+		height: 30vh;
+		margin-top: 10px;
+	}
+
+	.fileInputIcon {
+		font-size: 24px;
+	}
+
+	.categorySelect {
+		padding: 3px;
+	}
+	.titleInput {
+		font-size: 24px;
+	}
+
+	.writeTextArea {
+		margin: 0px 0px 16px 0px;
+		font-size: 18px;
+	}
+
+	.writeSubmitBtn {
+		padding: 5px 10px;
+	}
+}
