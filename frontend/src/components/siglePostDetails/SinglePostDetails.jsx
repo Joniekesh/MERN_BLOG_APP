@@ -45,18 +45,20 @@ const SinglePostDetails = ({ user }) => {
 			},
 		};
 
+		const updatedPost = {
+			user: user._id,
+			name: user.name,
+			avatar: user.avatar,
+			title,
+			desc,
+			category,
+			photo,
+		};
+
 		try {
 			const res = await axios.put(
 				`/posts/${post._id}`,
-				{
-					user: user._id,
-					name: user.name,
-					avatar: user.avatar,
-					title,
-					desc,
-					category,
-					photo,
-				},
+				{ updatedPost },
 				config
 			);
 			setIsUpdate(false);
@@ -107,9 +109,6 @@ const SinglePostDetails = ({ user }) => {
 			setLikes(res.data);
 			setPost({ ...post, likes });
 
-			setTimeout(() => {
-				setSuccess("");
-			}, 5000);
 			window.location.reload();
 			return setSuccess("Post Liked");
 		} catch (err) {
@@ -117,6 +116,7 @@ const SinglePostDetails = ({ user }) => {
 			if (error) {
 				setTimeout(() => {
 					setError("");
+					setSuccess("");
 				}, 5000);
 				return setError(error.msg);
 			}
@@ -170,12 +170,27 @@ const SinglePostDetails = ({ user }) => {
 						alt=""
 					/>
 				)}
+				{isUpdate && (
+					<div className="updateFileInput">
+						<label htmlFor="fileInput">
+							<i className=" fileInputIcon fas fa-plus"></i>
+							<input
+								className="writeFormGroupInput"
+								type="file"
+								id="fileInput"
+								style={{ display: "none" }}
+								onChange={(e) => setPhoto(e.target.files[0])}
+							/>
+						</label>
+					</div>
+				)}
 				{isUpdate ? (
 					<select
 						className="updateSelect"
 						onChange={(e) => setCategory(e.target.value)}
 					>
 						<option value={category}>{category}</option>
+						<option value="sports">sports</option>
 						<option value="music">music</option>
 						<option value="entertainment">entertainment</option>
 						<option value="food">food</option>
@@ -210,7 +225,7 @@ const SinglePostDetails = ({ user }) => {
 							<div className="authorSingle">
 								<img
 									className="authorSingleLeft"
-									src="/assets/profile.jpeg"
+									src={PF + user?.avatar}
 									alt=""
 								/>
 								<div className="authSingleRight">

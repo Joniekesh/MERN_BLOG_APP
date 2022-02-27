@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ user }) => {
 	const navigate = useNavigate();
 
+	const PF = "http://localhost:5000/images/";
+
 	const logoutHandler = () => {
 		localStorage.removeItem("token");
 		navigate("/");
@@ -62,11 +64,7 @@ const Navbar = ({ user }) => {
 				<div className="navbarRightWrapper">
 					{user && (
 						<Link to="/settings">
-							<img
-								className="navbarRightImg"
-								src="/assets/profile.jpeg"
-								alt=""
-							/>
+							<img className="navbarRightImg" src={PF + user.avatar} alt="" />
 						</Link>
 					)}
 

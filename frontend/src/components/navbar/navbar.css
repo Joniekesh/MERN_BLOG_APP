@@ -95,6 +95,36 @@
 	padding: 5px;
 }
 
+@media only screen and (max-width: 375px) {
+	.navbarCenter {
+		padding: 0;
+		margin: 0;
+	}
+	.navbarCenterListItem {
+		margin: 0px;
+		padding: 0px;
+		font-size: 10px;
+	}
+	.navAbout {
+		display: none;
+	}
+	.navbarRightImg {
+		width: 20px;
+		height: 20px;
+		margin: 0;
+	}
+}
+
+@media only screen and (max-width: 425px) {
+	.navbarCenter {
+		padding-left: 0px;
+	}
+	.navbarCenterListItem {
+		margin-right: 8px;
+		font-size: 13px;
+	}
+}
+
 @media screen and (max-width: 600px) {
 	.navbarLeft {
 		display: none;
@@ -125,5 +155,14 @@
 	}
 	.navbarLeftIcon {
 		margin-right: 10px;
+	}
+}
+@media only screen and (max-width: 953px) {
+	.navbarLeftWrapper {
+		margin-left: 25px;
+		margin-right: 0px;
+	}
+	.navbarLeftIcon {
+		margin-right: 16px;
 	}
 }

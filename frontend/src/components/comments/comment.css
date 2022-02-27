@@ -31,6 +31,13 @@
 	color: goldenrod;
 	margin-bottom: 5px;
 }
+.commentUpdate {
+	border: none;
+	background-color: inherit;
+}
+.commentUpdate:focus {
+	outline: none;
+}
 
 .commentItem {
 	color: #333;
@@ -38,10 +45,33 @@
 
 .commentBottom {
 	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .commentDate {
 	font-size: smaller;
+	color: crimson;
+}
+.commentUpdateBtn {
+	color: white;
+	background-color: teal;
+	border: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.commentEdit {
+	border-bottom: 1px dotted crimson;
+	cursor: pointer;
+	color: teal;
+}
+
+.commentDelete {
+	border-bottom: 1px dotted crimson;
+	cursor: pointer;
+	margin-left: 20px;
 	color: crimson;
 }
 

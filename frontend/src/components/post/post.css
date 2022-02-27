@@ -68,3 +68,22 @@
 .postCommentCount {
 	margin-right: 5px;
 }
+
+@media only screen and (max-width: 425px) {
+	.postWrapper {
+		width: 100%;
+		padding: 2rem;
+		margin: 8px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.postWrapper {
+		width: 260px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.postWrapper {
+		width: 230px;
+	}
+}

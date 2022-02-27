@@ -6,8 +6,11 @@ import Footer from "../../comments/footer/Footer";
 const Settings = ({ user }) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
-	const [avatar, setAvatar] = useState("");
+	const [file, setFile] = useState("");
 	const [password, setPassword] = useState("");
+	const [success, setSuccess] = useState("");
+
+	const PF = "http://localhost:5000/images/";
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
@@ -21,14 +24,31 @@ const Settings = ({ user }) => {
 
 		const updatedUser = {
 			user: user._id,
-			name: user.name || name,
-			email: user.email || email,
-			avatar: user.avatar || avatar,
-			password: user.password || password,
+			name,
+			email,
+			password,
 		};
+		if (file) {
+			const data = new FormData();
+			const filename = Date.now() + file.name;
+			data.append("name", filename);
+			data.append("file", file);
 
-		const res = await axios.put("/users/me", updatedUser, config);
-		console.log(res.user);
+			updatedUser.avatar = filename;
+
+			try {
+				await axios.post("/upload", data);
+			} catch (error) {}
+		}
+
+		try {
+			const res = axios.put("/users/me", updatedUser, config);
+			setTimeout(() => {
+				setSuccess("");
+			}, 5000);
+			setSuccess("Profile Successfully Updated");
+			window.location.replace("/settings");
+		} catch (error) {}
 	};
 
 	const deleteAccount = async () => {
@@ -38,7 +58,11 @@ const Settings = ({ user }) => {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		};
-		if (window.confirm("Are you SURE? This cannot be undone!")) {
+		if (
+			window.confirm(
+				"Are you SURE? This cannot be UNDONE! Your posts will be deleted as well."
+			)
+		) {
 			try {
 				await axios.delete("/users", config);
 				window.location.replace("/");
@@ -52,6 +76,7 @@ const Settings = ({ user }) => {
 				<div className="settingsWrapper">
 					<div className="settingsLeftWrapper">
 						<div className="settingsTop">
+							{success && <span className="success">{success}</span>}
 							<span className="settingsTopText">Update Your Account</span>
 							<span className="settinggsDeleteAccount" onClick={deleteAccount}>
 								Delete Account
@@ -63,7 +88,7 @@ const Settings = ({ user }) => {
 								<div className="settingsCenterImgDiv">
 									<img
 										className="settingsCenterImgDivImg"
-										src="/assets/profile.jpeg"
+										src={file ? URL.createObjectURL(file) : PF + user?.avatar}
 										alt=""
 									/>
 									<label htmlFor="fileInput">
@@ -72,7 +97,7 @@ const Settings = ({ user }) => {
 											type="file"
 											id="fileInput"
 											style={{ display: "none" }}
-											onChange={(e) => setAvatar(e.target.files[0])}
+											onChange={(e) => setFile(e.target.files[0])}
 										/>
 									</label>
 								</div>
@@ -83,6 +108,7 @@ const Settings = ({ user }) => {
 									<input
 										type="text"
 										placeholder={user.name}
+										value={name}
 										onChange={(e) => setName(e.target.value)}
 									/>
 								</div>
@@ -91,6 +117,7 @@ const Settings = ({ user }) => {
 									<input
 										type="email"
 										placeholder={user.email}
+										value={email}
 										onChange={(e) => setEmail(e.target.value)}
 									/>
 								</div>
@@ -98,6 +125,7 @@ const Settings = ({ user }) => {
 									<label htmlFor="password">Password</label>
 									<input
 										type="password"
+										value={password}
 										onChange={(e) => setPassword(e.target.value)}
 									/>
 								</div>

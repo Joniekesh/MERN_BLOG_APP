@@ -92,6 +92,7 @@ const Write = ({ user }) => {
 								onChange={(e) => setCategory(e.target.value)}
 							>
 								<option>* Select Category</option>
+								<option value="sports">sports</option>
 								<option value="music">music</option>
 								<option value="entertainment">entertainment</option>
 								<option value="food">food</option>
@@ -101,6 +102,15 @@ const Write = ({ user }) => {
 								<option value="agriculture">agriculture</option>
 								<option value="education">education</option>
 								<option value="lifestyle">lifestyle</option>
+								<option value="family">family</option>
+								<option value="religion">religion</option>
+								<option value="fashion">fashion</option>
+								<option value="career">career</option>
+								<option value="business">business</option>
+								<option value="pets">pets</option>
+								<option value="investment">investment</option>
+								<option value="automobile">automobile</option>
+								<option value="politics">politics</option>
 							</select>
 							<input
 								className="titleInput"

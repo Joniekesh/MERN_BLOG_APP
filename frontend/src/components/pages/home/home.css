@@ -52,7 +52,7 @@
 	opacity: 0.8;
 	text-align: center;
 	color: #fff;
-	padding: 12px;
+	padding: 10px;
 }
 
 .catListBtn {
@@ -79,10 +79,10 @@
 	}
 
 	.logoSm {
-		font-size: 24px;
+		font-size: 27px;
 	}
 	.logoLg {
-		font-size: 80px;
+		font-size: 85px;
 	}
 	.homeImg {
 		height: 30vh;
@@ -99,14 +99,20 @@
 
 @media only screen and (max-width: 425px) {
 	.container {
-		margin-top: 4rem;
+		margin-top: 1rem;
 	}
-
+	.postCategories {
+		width: 100%;
+	}
+	.categoryListItem {
+		padding: 0px;
+		font-size: 12px;
+	}
 	.logoSm {
-		font-size: 27px;
+		font-size: 24px;
 	}
 	.logoLg {
-		font-size: 85px;
+		font-size: 80px;
 	}
 	.homeImg {
 		height: 30vh;
@@ -114,5 +120,14 @@
 
 	.postsContainer {
 		flex-direction: column;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.categoryList {
+		padding: 0;
+	}
+	.categoryListItem {
+		padding: 3px;
 	}
 }

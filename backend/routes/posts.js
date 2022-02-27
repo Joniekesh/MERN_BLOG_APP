@@ -101,7 +101,7 @@ router.get("/", async (req, res) => {
 // @route  PUT /api/post/:id
 // @access Private
 router.put("/:id", auth, async (req, res) => {
-	const { title, desc, category } = req.body;
+	const { title, desc, category, photo } = req.body;
 
 	try {
 		const post = await Post.findById(req.params.id);
@@ -119,7 +119,7 @@ router.put("/:id", auth, async (req, res) => {
 
 		post.title = title || post.title;
 		post.desc = desc || post.desc;
-		post.category = category || category;
+		post.category = category || post.category;
 
 		const updatedPost = await post.save();
 
@@ -286,6 +286,44 @@ router.delete("/comments/:postId/:commentId", auth, async (req, res) => {
 		await post.save();
 
 		res.json("Comment deleted");
+	} catch (err) {
+		console.log(err.message);
+		if (err.kind == "ObjectId") {
+			res.status(404).json({ msg: "Comment not found" });
+			res.status(500).send("Server Error");
+		}
+	}
+});
+
+// @desc   Update comment
+// @route  PUT /api/posts/comments/:postId/:commentId
+// @access Private
+router.put("/comments/:postId/:commentId", auth, async (req, res) => {
+	try {
+		const post = await Post.findById(req.params.postId);
+
+		if (!post) {
+			return res.status(404).json({ msg: "Post not found" });
+		}
+
+		const comment = post.comments.find(
+			(comment) => comment._id.toString() === req.params.commentId
+		);
+
+		if (!comment) {
+			return res.status(404).json({ msg: "Comment not found" });
+		}
+
+		if (comment.user.toString() !== req.user.id) {
+			return res
+				.status(401)
+				.json({ msg: "You are not authorized to update this comment" });
+		}
+
+		comment.desc = req.body.desc || comment.desc;
+
+		updatedComment = await post.save();
+		res.json(updatedComment);
 	} catch (err) {
 		console.log(err.message);
 		if (err.kind == "ObjectId") {

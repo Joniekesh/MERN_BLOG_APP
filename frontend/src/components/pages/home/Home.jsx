@@ -42,11 +42,11 @@ const Home = () => {
 					<h2>Categories: </h2>
 					<ul className="categoryList">
 						{categories.map((cat) => (
-							<Link to={`/?cat=${cat.name}`} key={cat._id}>
-								<li className="categoryListItem">
+							<li className="categoryListItem" key={cat._id}>
+								<Link to={`/?cat=${cat.name}`}>
 									<button className="catListBtn">{cat.name}</button>
-								</li>
-							</Link>
+								</Link>
+							</li>
 						))}
 					</ul>
 				</div>
