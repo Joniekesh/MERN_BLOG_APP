@@ -53,6 +53,10 @@
 	text-align: center;
 	color: #fff;
 	padding: 10px;
+	transition: all 0.3s ease;
+}
+.categoryListItem:hover {
+	transform: scale(1.09);
 }
 
 .catListBtn {
@@ -70,12 +74,18 @@
 @media only screen and (max-width: 600px) {
 	.container {
 		margin-top: 0px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 	.logoContainer {
 		margin-top: 3rem;
 	}
 	.categoryListItem {
-		padding: 8px;
+		padding: 0px;
+	}
+	.catListBtn {
+		padding: 5px;
 	}
 
 	.logoSm {
@@ -87,11 +97,10 @@
 	.homeImg {
 		height: 30vh;
 	}
-	.container {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+	.postCategories {
+		padding: 0px;
 	}
+
 	.postsContainer {
 		flex-direction: column;
 	}

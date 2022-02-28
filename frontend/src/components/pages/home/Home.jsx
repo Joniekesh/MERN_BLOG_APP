@@ -12,6 +12,8 @@ const Home = () => {
 
 	const { search } = useLocation();
 
+	const PF = "http://localhost:5000/images/";
+
 	useEffect(() => {
 		const fetchPosts = async () => {
 			try {
@@ -37,16 +39,16 @@ const Home = () => {
 					<span className="logoSm">MERN STACK</span>
 					<span className="logoLg">BLOG</span>
 				</div>
-				<img className="homeImg" src="/assets/home.jpeg" alt="" />
+				<img className="homeImg" src={PF + "home.jpeg"} alt="" />
 				<div className="postCategories">
 					<h2>Categories: </h2>
 					<ul className="categoryList">
 						{categories.map((cat) => (
-							<li className="categoryListItem" key={cat._id}>
-								<Link to={`/?cat=${cat.name}`}>
+							<Link to={`/?cat=${cat.name}`} key={cat._id}>
+								<li className="categoryListItem" key={cat._id}>
 									<button className="catListBtn">{cat.name}</button>
-								</Link>
-							</li>
+								</li>
+							</Link>
 						))}
 					</ul>
 				</div>

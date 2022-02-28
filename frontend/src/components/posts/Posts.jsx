@@ -7,7 +7,7 @@ const Posts = ({ posts }) => {
 			{posts.length > 0 ? (
 				posts.map((post) => <Post key={post._id} post={post} />)
 			) : (
-				<h4>No posts to show</h4>
+				<h1 style={{ opacity: "0.6" }}>No post yet for this Category</h1>
 			)}
 		</div>
 	);

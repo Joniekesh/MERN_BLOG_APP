@@ -47,7 +47,7 @@ const Settings = ({ user }) => {
 				setSuccess("");
 			}, 5000);
 			setSuccess("Profile Successfully Updated");
-			window.location.replace("/settings");
+			window.location.replace("/");
 		} catch (error) {}
 	};
 
@@ -58,11 +58,7 @@ const Settings = ({ user }) => {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			},
 		};
-		if (
-			window.confirm(
-				"Are you SURE? This cannot be UNDONE! Your posts will be deleted as well."
-			)
-		) {
+		if (window.confirm("Are you SURE? This cannot be UNDONE!")) {
 			try {
 				await axios.delete("/users", config);
 				window.location.replace("/");

@@ -1,6 +1,6 @@
 .register {
 	height: calc(100vh - 60px);
-	background-image: url("../../../../public/assets/regBg.jpeg");
+	background-image: url("http://localhost:5000/images/regBg.jpeg");
 	background-size: cover;
 	width: 100vw;
 	position: fixed;

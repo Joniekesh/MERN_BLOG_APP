@@ -9,7 +9,7 @@ const SinglePostDetails = ({ user }) => {
 	const [post, setPost] = useState({});
 	const [title, setTitle] = useState("");
 	const [desc, setDesc] = useState("");
-	const [photo, setPhoto] = useState("");
+	const [file, setFile] = useState("");
 	const [category, setCategory] = useState("");
 	const [likes, setLikes] = useState(0);
 	const [success, setSuccess] = useState("");
@@ -29,7 +29,6 @@ const SinglePostDetails = ({ user }) => {
 				setTitle(res.data.title);
 				setDesc(res.data.desc);
 				setCategory(res.data.category);
-				setPhoto(res.data.photo);
 			} catch (err) {
 				console.log(err);
 			}
@@ -52,8 +51,20 @@ const SinglePostDetails = ({ user }) => {
 			title,
 			desc,
 			category,
-			photo,
 		};
+
+		if (file) {
+			const data = new FormData();
+			const filename = Date.now() + file.name;
+			data.append("name", filename);
+			data.append("file", file);
+
+			updatedPost.photo = filename;
+
+			try {
+				await axios.post("/upload", data);
+			} catch (error) {}
+		}
 
 		try {
 			const res = await axios.put(
@@ -179,7 +190,7 @@ const SinglePostDetails = ({ user }) => {
 								type="file"
 								id="fileInput"
 								style={{ display: "none" }}
-								onChange={(e) => setPhoto(e.target.files[0])}
+								onChange={(e) => setFile(e.target.files[0])}
 							/>
 						</label>
 					</div>
@@ -309,7 +320,9 @@ const SinglePostDetails = ({ user }) => {
 							))
 							.reverse()
 					) : (
-						<h4 style={{ textAlign: "center" }}>No comments for this post</h4>
+						<h2 style={{ textAlign: "center", opacity: "0.6" }}>
+							No comments for this post
+						</h2>
 					)}
 				</>
 			)}

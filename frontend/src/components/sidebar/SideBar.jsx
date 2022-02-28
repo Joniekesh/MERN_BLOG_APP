@@ -1,11 +1,13 @@
 import "./sideBar.css";
 import axios from "axios";
-import { useEffect } from "react";
+import { Profiler, useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
 	const [categories, setCategories] = useState([]);
+
+	const PF = "http://localhost:5000/images/";
 
 	useEffect(() => {
 		const fetchCats = async () => {
@@ -19,7 +21,7 @@ const SideBar = () => {
 		<div className="sidebar">
 			<div className="sidebarWrapper">
 				<p className="aboutMe">ABOUT ME</p>
-				<img className="sidebarImg" src="/assets/profile.jpeg" alt="" />
+				<img className="sidebarImg" src={PF + "profile.jpeg"} alt="" />
 				<p className="sidebarDesc">
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni
 					accusantium voluptatum possimus tempora molestias, blanditiis ea

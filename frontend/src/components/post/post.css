@@ -1,5 +1,5 @@
 .postWrapper {
-	width: 240px;
+	width: 260px;
 	height: 360px;
 	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
@@ -68,6 +68,8 @@
 .postCommentCount {
 	margin-right: 5px;
 }
+@media only screen and (max-width: 320px) {
+}
 
 @media only screen and (max-width: 425px) {
 	.postWrapper {
@@ -76,6 +78,13 @@
 		margin: 8px;
 	}
 }
+@media only screen and (max-width: 480px) {
+	.postWrapper {
+		width: 300px;
+		padding: 20px 40px;
+	}
+}
+
 @media only screen and (max-width: 600px) {
 	.postWrapper {
 		width: 260px;

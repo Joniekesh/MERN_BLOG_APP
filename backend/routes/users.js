@@ -86,12 +86,8 @@ router.put("/me", auth, async (req, res) => {
 // @access Private
 router.delete("/", auth, async (req, res) => {
 	try {
-		await Promise.all([
-			User.findOneAndRemove({ _id: req.user.id }),
-			Post.deleteMany({ user: req.user.id }),
-		]);
-
-		res.json({ msg: "User deleted" });
+		await User.findOneAndRemove({ _id: req.user.id }),
+			res.json({ msg: "User deleted" });
 	} catch (err) {
 		console.log(err.message);
 		res.status(400).send("Server Error");

@@ -1,6 +1,6 @@
 .login {
 	height: calc(100vh - 60px);
-	background-image: url("../../../../public/assets/loginBg.jpeg");
+	background-image: url("http://localhost:5000/images/loginBg.jpeg");
 	background-size: cover;
 	width: 100vw;
 	position: fixed;

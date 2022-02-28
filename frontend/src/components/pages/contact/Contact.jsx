@@ -45,7 +45,13 @@ const Contact = () => {
 								<button className="contactBtn" type="submit">
 									SEND
 								</button>
-								{done && "Email sent.Thank You!"}
+								{done && (
+									<span style={{ color: "green" }}>
+										Email sent.You will receive a reply soon.
+										<br />
+										Thank You!
+									</span>
+								)}
 							</form>
 							<div className="contactRight">
 								<div className="contactRightAddress">

@@ -70,10 +70,12 @@ button {
 	.contactWrapper {
 		width: 90%;
 	}
+	.contactLeft {
+		margin-right: 0;
+	}
 	.contactLeft input,
 	textarea,
 	button {
-		margin: 5px;
 		padding: 6px 12px;
 		font-size: 16px;
 	}
@@ -86,5 +88,8 @@ button {
 	.phone,
 	.email {
 		font-size: 20px;
+	}
+	.contactRight {
+		margin-left: 50px;
 	}
 }
