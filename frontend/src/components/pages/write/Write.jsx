@@ -1,7 +1,7 @@
 import "./write.css";
 import axios from "axios";
 import { useState } from "react";
-import Footer from "../../comments/footer/Footer";
+import Footer from "../../footer/Footer";
 
 const Write = ({ user }) => {
 	const [title, setTitle] = useState("");

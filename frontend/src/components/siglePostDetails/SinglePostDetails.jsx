@@ -47,7 +47,6 @@ const SinglePostDetails = ({ user }) => {
 		const updatedPost = {
 			user: user._id,
 			name: user.name,
-			avatar: user.avatar,
 			title,
 			desc,
 			category,
@@ -67,11 +66,7 @@ const SinglePostDetails = ({ user }) => {
 		}
 
 		try {
-			const res = await axios.put(
-				`/posts/${post._id}`,
-				{ updatedPost },
-				config
-			);
+			const res = await axios.put(`/posts/${post._id}`, updatedPost, config);
 			setIsUpdate(false);
 			setTimeout(() => {
 				setSuccess("");
@@ -174,15 +169,20 @@ const SinglePostDetails = ({ user }) => {
 			{error && <p className="error">{error}</p>}
 
 			<div className="singlePostDetailsWrapper">
-				{post.photo && (
-					<img
-						className="singlePostDetailsWrapperImg"
-						src={PF + post?.photo}
-						alt=""
-					/>
-				)}
-				{isUpdate && (
+				{!isUpdate ? (
+					post.photo && (
+						<img
+							className="singlePostDetailsWrapperImg"
+							src={PF + post?.photo}
+							alt=""
+						/>
+					)
+				) : (
 					<div className="updateFileInput">
+						<img
+							className="singlePostDetailsWrapperImg"
+							src={PF + post?.photo}
+						/>
 						<label htmlFor="fileInput">
 							<i className=" fileInputIcon fas fa-plus"></i>
 							<input
@@ -227,7 +227,9 @@ const SinglePostDetails = ({ user }) => {
 				) : (
 					<>
 						<span className="singlePostDetailsTitle">
-							{post.title?.substr(0, 100)}...
+							{post.title?.length > 200
+								? post.title.substr(0, 200)
+								: post.title}
 						</span>
 						<p className="singlePostDate">
 							{new Date(post.createdAt).toDateString()}
@@ -316,6 +318,7 @@ const SinglePostDetails = ({ user }) => {
 									comment={comment}
 									post={post}
 									user={user}
+									setPost={setPost}
 								/>
 							))
 							.reverse()

@@ -1,7 +1,7 @@
 import "./settings.css";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../../comments/footer/Footer";
+import Footer from "../../footer/Footer";
 
 const Settings = ({ user }) => {
 	const [name, setName] = useState("");

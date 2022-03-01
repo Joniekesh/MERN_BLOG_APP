@@ -1,5 +1,5 @@
 import "./contact.css";
-import Footer from "../../comments/footer/Footer";
+import Footer from "../../footer/Footer";
 import { useRef } from "react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";

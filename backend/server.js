@@ -6,10 +6,10 @@ const userRoute = require("./routes/users");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
-
 const dotenv = require("dotenv");
-dotenv.config();
 const connectDB = require("./config/db");
+
+dotenv.config();
 connectDB();
 
 app.use(express.json());

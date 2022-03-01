@@ -1,5 +1,5 @@
-import Footer from "../../comments/footer/Footer";
 import "./about.css";
+import Footer from "../../footer/Footer";
 
 const About = () => {
 	return (

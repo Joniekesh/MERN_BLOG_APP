@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Posts from "../../posts/Posts";
 import SideBar from "../../sidebar/SideBar";
+import Footer from "../../footer/Footer";
 import axios from "axios";
-import Footer from "../../comments/footer/Footer";
-
 const Home = () => {
 	const [posts, setPosts] = useState([]);
 	const [categories, setCategories] = useState([]);

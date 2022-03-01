@@ -3,16 +3,36 @@ import { format } from "timeago.js";
 import axios from "axios";
 import { useState } from "react";
 
-const Comment = ({ comment, user, post }) => {
+const Comment = ({ comment, user, post, setPost }) => {
 	const [desc, setDesc] = useState("");
 	const [isUpdate, setIsUpdate] = useState(false);
 	const [success, setSuccess] = useState("");
 	const [error, setError] = useState("");
+	const [commentEdit, setCommentEdit] = useState({});
 
 	const PF = "http://localhost:5000/images/";
 
 	const handleEdit = async () => {
-		console.log("edit");
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+		};
+
+		const editedComment = {
+			user: user._id,
+			desc,
+		};
+
+		const res = await axios.put(
+			`/posts/comments/${post._id}/${comment._id}`,
+			editedComment,
+			config
+		);
+		setCommentEdit(res.data);
+		setPost({ ...post, commentEdit });
+		window.location.reload();
 	};
 
 	const handleDelete = async () => {
@@ -51,7 +71,7 @@ const Comment = ({ comment, user, post }) => {
 					</div>
 					{isUpdate ? (
 						<textarea
-							value={comment.desc}
+							defaultValue={comment.desc}
 							className="commentUpdate"
 							onChange={(e) => setDesc(e.target.value)}
 						></textarea>
@@ -66,7 +86,9 @@ const Comment = ({ comment, user, post }) => {
 					{user && user._id === comment.user && (
 						<div className="reaction">
 							{isUpdate ? (
-								<button className="commentUpdateBtn">Update</button>
+								<button className="commentUpdateBtn" onClick={handleEdit}>
+									Update
+								</button>
 							) : (
 								<>
 									<span

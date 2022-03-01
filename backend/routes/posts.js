@@ -116,7 +116,7 @@ router.put("/:id", auth, async (req, res) => {
 				.status(401)
 				.json({ msg: "You are not authorized to update this post" });
 		}
-
+		post.photo = photo || post.photo;
 		post.title = title || post.title;
 		post.desc = desc || post.desc;
 		post.category = category || post.category;

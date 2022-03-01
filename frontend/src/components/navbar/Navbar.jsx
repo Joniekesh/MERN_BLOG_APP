@@ -64,7 +64,11 @@ const Navbar = ({ user }) => {
 				<div className="navbarRightWrapper">
 					{user && (
 						<Link to="/settings">
-							<img className="navbarRightImg" src={PF + user.avatar} alt="" />
+							<img
+								className="navbarRightImg"
+								src={PF + user.avatar || PF + "avatar.jpeg"}
+								alt=""
+							/>
 						</Link>
 					)}
 
