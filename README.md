@@ -4,6 +4,8 @@ This is a blog app that dishes out latest categorized news to users namely: spor
 
 ![image](https://user-images.githubusercontent.com/73966666/186167698-6131a484-46da-4780-a669-df7181f448f7.png)
 
+# URL:http://mernblogapp1.herokuapp.com
+
 ## FEATURES
 1. User Authenticatiopn System.
 2. Post lists pages according to categories.
